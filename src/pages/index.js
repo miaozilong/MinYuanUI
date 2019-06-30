@@ -1,5 +1,7 @@
 import styles from './index.css';
 import {Modal} from '@/components/Modal'
+import {EditableTreeNode} from '@/components/EditableTreeNode'
+import {Tree} from 'antd'
 import {Modal as AntModal} from 'antd'
 import React from 'react'
 
@@ -8,17 +10,24 @@ export default class Demo extends React.Component {
         modal1: true,
         modal2: true
     }
+    test1 = (e) => {
+        console.log('edit', e)
+        // e.preventDefault()
+    }
+    test2 = (node) => {
+        console.log('delete', node)
+    }
 
     render() {
         return (
             <div className={styles.normal}>
-                <Modal visible={this.state.modal1} tips={"test"} title={'asd'} onOk={() => console.log('ok')}
-                       onCancel={() => this.setState({...this.state, modal1: false})}></Modal>
-                <Modal visible={this.state.modal2} tips={"test"} title={'asd'} onOk={() => console.log('ok')}
-                       onCancel={() => this.setState({...this.state, modal2: false})}></Modal>
-                {/*<Modal visible={true} tips={"test"} title={'asd'}></Modal>*/}
-                {/*<Modal visible={true} tips={"test"} title={'asd'}></Modal>*/}
-                <AntModal visible={true} title={'aaa'} />
+                <Tree blockNode>
+                    <EditableTreeNode title={'节点标题2'}
+                                      handleClickEdit={this.test1}
+                                      handleClickDelete={this.test2}
+                    />
+                </Tree>
+
             </div>
         );
     }
