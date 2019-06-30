@@ -44,6 +44,49 @@
 <Modal btn2={false} btn1Name={'btn1name'} tips={'提示内容'}></Modal>
 `
 
+
+
+### EditableTreeNode 可编辑树节点
+
+#### 说明:
+
+当光标放到树节点上时,显示编辑和删除图标,点击图标时有回调函数
+
+需要设置树节点的属性blockNode设置为true
+
+![1561897133204](assets/1561897133204.png)
+
+![1561899670913](assets/1561899670913.png)
+
+#### 声明:
+
+`import {EditableTreeNode} from 'minyuanui';`
+
+#### API:
+
+| 参数              | 说明                     | 类型                          | 默认值 |
+| ----------------- | ------------------------ | ----------------------------- | ------ |
+| handleClickEdit   | 点击编辑按钮时的回调函数 | function(treenode)            |        |
+| handleClickDelete | 点击删除按钮时的回调函数 | function(treenode)            |        |
+| handleHandleEdit  | 编辑完成后的回调函数     | function(treenode,{newTitle}) |        |
+
+其他功能: 编辑状态下按回车,可触发编辑完成功能
+
+其他API参考ant design的TreeNode组件 [传送门](<https://ant-design.gitee.io/components/tree-cn/#TreeNode-props>)
+
+#### Samples:
+
+```jsx
+<Tree blockNode>
+    <EditableTreeNode title={'节点标题2'}
+        handleClickEdit={this.test1}
+        handleClickDelete={this.test2}
+        handleHandleEdit={this.test3}
+        />
+</Tree>
+```
+
+
 ## 贡献
 
 欢迎PR

@@ -56,13 +56,13 @@ export class EditableTreeNode extends TreeNode {
                 >
                     <div style={{width: 'calc(100% - 85px)', display: 'inline-block'}}>
                         {this.state.editing ? <Input size="small" style={{display: 'inline-block'}}
-
                                                      onKeyUp={this.handleKeyEditTitle}
                                                      defaultValue={originTitle}/> : originTitle}
                     </div>
                     <div style={{float: 'right', fontSize: 20, display: this.state.iconDivDisplay, width: 72}}
                     >
-                        <Icon onClick={this.handleClickEdit} style={{marginRight: 15}} type="edit"/>
+                        <Icon onClick={this.handleClickEdit} style={{marginRight: 15}}
+                              type={this.state.editing ? 'check' : 'edit'}/>
                         <Icon onClick={this.handleClickDelete}
                               type="delete"/>
                     </div>
@@ -71,7 +71,7 @@ export class EditableTreeNode extends TreeNode {
         )
         return (
             <>
-                <TreeNode   {...this.props} title={title} blockNode />
+                <TreeNode   {...this.props} title={title} blockNode/>
             </>
         )
     }
