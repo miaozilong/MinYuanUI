@@ -1,6 +1,6 @@
 {
   "name": "minyuanui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "民原科技的UI库",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "url": "git+https://github.com/miaozilong/MinYuanUI.git"
   },
   "keywords": [
-    "民原"
+    "民原",
+    "UI Library"
   ],
   "author": "缪子龙",
   "license": "ISC",
