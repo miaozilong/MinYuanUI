@@ -70,7 +70,7 @@
 | handleClickDelete | 点击删除按钮时的回调函数 | function(treenode)            |        |
 | handleHandleEdit  | 编辑完成后的回调函数     | function(treenode,{newTitle}) |        |
 
-其他功能: 编辑状态下按回车,可触发编辑完成功能
+其他功能: 编辑状态下按回车或者点击勾选图标,可触发编辑完成功能
 
 其他API参考ant design的TreeNode组件 [传送门](<https://ant-design.gitee.io/components/tree-cn/#TreeNode-props>)
 
