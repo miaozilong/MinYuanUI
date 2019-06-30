@@ -23,7 +23,7 @@
 
 #### 声明:
 
-`const {Modal} from 'minyuanui'`
+`import {Modal} from 'minyuanui';`
 
 #### API:
 
