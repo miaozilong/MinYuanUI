@@ -14,7 +14,7 @@ export class EditableTreeNode extends TreeNode {
     handleClickEdit = e => {
         e.preventDefault()
         this.setState(produce(draft => {
-            draft.editing = true
+            draft.editing = !draft.editing
         }))
         this.props.handleClickEdit(this)
     }
@@ -33,8 +33,16 @@ export class EditableTreeNode extends TreeNode {
         }))
     }
     handleFinishEdit = (e) => {
-        console.log(e.target.value)
-
+        this.setState(produce(draft => {
+            draft.editing = false
+        }))
+        this.props.handleHandleEdit(this, {newTitle: e.target.value})
+    }
+    handleKeyEditTitle = e => {
+        if (e.keyCode === 13) {
+            //    按了回车
+            this.handleFinishEdit(e)
+        }
     }
 
     render() {
@@ -48,7 +56,8 @@ export class EditableTreeNode extends TreeNode {
                 >
                     <div style={{width: 'calc(100% - 85px)', display: 'inline-block'}}>
                         {this.state.editing ? <Input size="small" style={{display: 'inline-block'}}
-                                                     onBlur={this.handleFinishEdit}
+
+                                                     onKeyUp={this.handleKeyEditTitle}
                                                      defaultValue={originTitle}/> : originTitle}
                     </div>
                     <div style={{float: 'right', fontSize: 20, display: this.state.iconDivDisplay, width: 72}}
@@ -58,13 +67,12 @@ export class EditableTreeNode extends TreeNode {
                               type="delete"/>
                     </div>
                 </div>
-                < />
-                )
-                return (
-                <>
-                    <TreeNode                  {...this.props} title={title}
-                    />
-                </>
-                )
-                }
-                }
+            </>
+        )
+        return (
+            <>
+                <TreeNode   {...this.props} title={title} blockNode />
+            </>
+        )
+    }
+}

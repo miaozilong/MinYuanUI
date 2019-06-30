@@ -17,6 +17,9 @@ export default class Demo extends React.Component {
     test2 = (node) => {
         console.log('delete', node)
     }
+    test3 = (node, edit) => {
+        console.log('edit data', node, edit)
+    }
 
     render() {
         return (
@@ -25,6 +28,7 @@ export default class Demo extends React.Component {
                     <EditableTreeNode title={'节点标题2'}
                                       handleClickEdit={this.test1}
                                       handleClickDelete={this.test2}
+                                      handleHandleEdit={this.test3}
                     />
                 </Tree>
 
