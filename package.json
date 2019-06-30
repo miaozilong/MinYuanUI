@@ -4,8 +4,9 @@
   "description": "民原科技的UI库",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "umi dev",
+    "build": "umi build",
+    "test": "umi test"
   },
   "repository": {
     "type": "git",
@@ -24,18 +25,10 @@
     "antd": "^3.19.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "webpack": "^4.35.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "umi": "^2.6.3",
+    "umi-plugin-react": "^1.6.0"
   }
 }
