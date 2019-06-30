@@ -5,8 +5,9 @@ import styles from './index.less'
 export class Modal extends React.Component {
     render() {
         return (
-            <div>
+            <div className={styles.modalDiv}>
                 <AntdModal {...this.props}
+                           getContainer={() => document.querySelector('.' + styles.modalDiv)}
                            footer={
                                <div>
                                    <div style={{clear: 'both', textAlign: 'left'}}>
@@ -18,11 +19,12 @@ export class Modal extends React.Component {
                                            loading={this.props.confirmLoading}
                                            onClick={this.props.handleOk}
                                            style={{marginRight: 20}}
+                                           onClick={this.props.onOk}
                                        >
                                            {this.props.btn1Name ? this.props.btn1Name : '确定'}
                                        </Button>
                                        {this.props.btn2 !== false ?
-                                           <Button key="cancel" onClick={this.props.handleCancel}>
+                                           <Button key="cancel" onClick={this.props.onCancel}>
                                                取消
                                            </Button>
                                            : ''}
