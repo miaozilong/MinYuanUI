@@ -25,7 +25,7 @@ export class Modal extends React.Component {
                                        </Button>
                                        {this.props.btn2 !== false ?
                                            <Button key="cancel" onClick={this.props.onCancel}>
-                                               取消
+                                               {this.props.btn2Name ? this.props.btn2Name : '取消'}
                                            </Button>
                                            : ''}
                                    </div>

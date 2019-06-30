@@ -31,6 +31,7 @@
 | -------- | ---------------------------------- | ----------------- | ------ |
 | btn2     | 第二个按钮是否显示                 | boolean           | true   |
 | btn1Name | 按钮1上的文字内容                  | string\|ReactNode | 确定   |
+| btn2Name | 按钮2上的文字内容                  | string\|ReactNode | 确定   |
 | tips     | 模态框左下角提示内容               | string\|ReactNode | ''     |
 | onOk     | 按钮1回调函数                      | function          |        |
 | onCancel | 按钮2回调函数 只在btn2为true时有效 | function          |        |
