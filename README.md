@@ -27,14 +27,14 @@
 
 #### API:
 
-| 参数     | 说明                               | 类型              | 默认值 |
-| -------- | ---------------------------------- | ----------------- | ------ |
-| btn2     | 第二个按钮是否显示                 | boolean           | true   |
-| btn1Name | 按钮1上的文字内容                  | string\|ReactNode | 确定   |
-| btn2Name | 按钮2上的文字内容                  | string\|ReactNode | 确定   |
-| tips     | 模态框左下角提示内容               | string\|ReactNode | ''     |
-| onOk     | 按钮1回调函数                      | function          |        |
-| onCancel | 按钮2回调函数 只在btn2为true时有效 | function          |        |
+| 参数     | 说明                                  | 类型              | 默认值 |
+| -------- | ------------------------------------- | ----------------- | ------ |
+| btn2     | 第二个按钮是否显示                    | boolean           | true   |
+| btn1Name | 按钮1上的文字内容                     | string\|ReactNode | 确定   |
+| btn2Name | 按钮2上的文字内容只在btn2为true时有效 | string\|ReactNode | 确定   |
+| tips     | 模态框左下角提示内容                  | string\|ReactNode | ''     |
+| onOk     | 按钮1回调函数                         | function          |        |
+| onCancel | 按钮2回调函数 只在btn2为true时有效    | function          |        |
 
 其他API参考ant design的Modal组件 [传送门](<https://ant-design.gitee.io/components/modal-cn/#API>)
 
