@@ -1,6 +1,9 @@
 import React from 'react';
 import {Modal} from './Modal'
 
+/*
+*   测试组件的文件,随便改
+* * */
 function App() {
     return (
         <div>
