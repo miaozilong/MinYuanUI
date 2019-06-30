@@ -1,0 +1,41 @@
+{
+  "name": "minyuanui",
+  "version": "1.0.0",
+  "description": "民原科技的UI库",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaozilong/MinYuanUI.git"
+  },
+  "keywords": [
+    "民原"
+  ],
+  "author": "缪子龙",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miaozilong/MinYuanUI/issues"
+  },
+  "homepage": "https://github.com/miaozilong/MinYuanUI#readme",
+  "dependencies": {
+    "antd": "^3.19.8",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
