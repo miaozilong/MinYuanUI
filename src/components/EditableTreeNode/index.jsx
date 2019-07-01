@@ -46,7 +46,7 @@ export class EditableTreeNode extends TreeNode {
     }
 
     render() {
-        const {title: originTitle} = this.props
+        const {title: originTitle, editable, deletable} = this.props
         const title = (
             <>
                 <div
@@ -59,12 +59,24 @@ export class EditableTreeNode extends TreeNode {
                                                      onKeyUp={this.handleKeyEditTitle}
                                                      defaultValue={originTitle}/> : originTitle}
                     </div>
-                    <div style={{float: 'right', fontSize: 20, display: this.state.iconDivDisplay, width: 72}}
+                    <div style={{
+                        float: 'right',
+                        fontSize: 20,
+                        textAlign: 'right',
+                        display: this.state.iconDivDisplay,
+                        width: 72
+                    }}
                     >
-                        <Icon onClick={this.handleClickEdit} style={{marginRight: 15}}
-                              type={this.state.editing ? 'check' : 'edit'}/>
-                        <Icon onClick={this.handleClickDelete}
-                              type="delete"/>
+                        {editable ?
+                            <Icon onClick={this.handleClickEdit}
+                                  type={this.state.editing ? 'check' : 'edit'}/>
+                            : ''
+                        }
+                        {deletable ?
+                            <Icon onClick={this.handleClickDelete} style={{marginLeft: 15}}
+                                  type="delete"/>
+                            : ''
+                        }
                     </div>
                 </div>
             </>

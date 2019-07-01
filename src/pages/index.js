@@ -29,6 +29,8 @@ export default class Demo extends React.Component {
                                       handleClickEdit={this.test1}
                                       handleClickDelete={this.test2}
                                       handleHandleEdit={this.test3}
+                                      editable
+                                      deletable
                     />
                 </Tree>
 
