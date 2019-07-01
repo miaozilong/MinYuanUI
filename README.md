@@ -46,6 +46,52 @@
 
 
 
+### Tree 可编辑树(没有写完,没有测试)
+
+#### 说明:
+
+基于AntDesign设计的功能更强的树,可直接传入数据,不用手动拼接TreeNode节点,每个节点都带有 parent 属性表示父节点,如果 parent 为空表示根节点
+
+![1561993699229](assets/1561993699229.png)
+
+#### 声明:
+
+`import {Tree} from 'minyuanui';`
+
+#### API:
+
+| 参数         | 说明     | 类型 | 默认值 |
+| ------------ | -------- | ---- | ------ |
+| treeNodeData | 节点数据 | json | []     |
+|              |          |      |        |
+|              |          |      |        |
+|              |          |      |        |
+|              |          |      |        |
+
+其他API参考ant design的Tree组件 [传送门](<https://ant-design.gitee.io/components/tree-cn/#Tree-props>)
+
+#### Samples:
+
+```jsx
+treeNodeData =[
+            {
+                key: '0', title: '中国', isLeaf: false, children: [
+                    {key: '11', title: '北京', editable: true, isLeaf: true},
+                    {
+                        key: '32', title: '江苏', isLeaf: false, children: [
+                            {key: '3206', title: '南通', isLeaf: true, deletable: true}
+                        ]
+                    }
+                ]
+            }, {
+                key: '1', title: '美国', isLeaf: true
+            }
+        ]
+<Tree blockNode treeNodeData={treeNodeData}/>
+```
+
+
+
 ### TreeNode 可编辑树节点
 
 #### 说明:
@@ -88,6 +134,8 @@
         />
 </Tree>
 ```
+
+
 
 
 ## 贡献
