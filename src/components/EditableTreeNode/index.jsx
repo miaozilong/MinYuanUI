@@ -16,11 +16,15 @@ export class EditableTreeNode extends TreeNode {
         this.setState(produce(draft => {
             draft.editing = !draft.editing
         }))
-        this.props.handleClickEdit(this)
+        if (this.props.handleClickEdit) {
+            this.props.handleClickEdit(this);
+        }
     }
     handleClickDelete = e => {
         e.preventDefault()
-        this.props.handleClickDelete(this)
+        if (this.props.handleClickDelete) {
+            this.props.handleClickDelete(this);
+        }
     }
     handleShowIcon = () => {
         this.setState(produce(draft => {
@@ -36,7 +40,9 @@ export class EditableTreeNode extends TreeNode {
         this.setState(produce(draft => {
             draft.editing = false
         }))
-        this.props.handleHandleEdit(this, {newTitle: e.target.value})
+        if (this.props.handleFinishEdit) {
+            this.props.handleFinishEdit(this, {newTitle: e.target.value});
+        }
     }
     handleKeyEditTitle = e => {
         if (e.keyCode === 13) {
@@ -47,6 +53,7 @@ export class EditableTreeNode extends TreeNode {
 
     render() {
         const {title: originTitle, editable, deletable} = this.props
+        const {editing} = this.state;
         const title = (
             <>
                 <div
@@ -67,11 +74,17 @@ export class EditableTreeNode extends TreeNode {
                         width: 72
                     }}
                     >
-                        {editable ?
+                        {editable && !editing ?
                             <Icon onClick={this.handleClickEdit}
-                                  type={this.state.editing ? 'check' : 'edit'}/>
+                                  type='edit'/>
                             : ''
                         }
+                        {editable && editing ?
+                            <Icon onClick={this.handleFinishEdit}
+                                  type='check'/>
+                            : ''
+                        }
+
                         {deletable ?
                             <Icon onClick={this.handleClickDelete} style={{marginLeft: 15}}
                                   type="delete"/>

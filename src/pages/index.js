@@ -26,9 +26,9 @@ export default class Demo extends React.Component {
             <div className={styles.normal}>
                 <Tree blockNode>
                     <EditableTreeNode title={'节点标题2'}
-                                      handleClickEdit={this.test1}
-                                      handleClickDelete={this.test2}
-                                      handleHandleEdit={this.test3}
+                                      // handleClickEdit={this.test1}
+                                      // handleClickDelete={this.test2}
+                                      handleFinishEdit={this.test3}
                                       editable
                                       deletable
                     />
