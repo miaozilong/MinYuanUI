@@ -1,6 +1,6 @@
 import styles from './index.css';
 import {Modal} from '@/components/Modal'
-import {EditableTreeNode} from '@/components/EditableTreeNode'
+import {TreeNode} from '@/components/TreeNode'
 import {Tree} from 'antd'
 import {Modal as AntModal} from 'antd'
 import React from 'react'
@@ -25,7 +25,7 @@ export default class Demo extends React.Component {
         return (
             <div className={styles.normal}>
                 <Tree blockNode>
-                    <EditableTreeNode title={'节点标题2'}
+                    <TreeNode title={'节点标题2'}
                                       // handleClickEdit={this.test1}
                                       // handleClickDelete={this.test2}
                                       handleFinishEdit={this.test3}

@@ -2,9 +2,9 @@ import React from 'react';
 import {Tree as AntTree, Icon, Input} from 'antd';
 import produce from 'immer'
 
-const {TreeNode} = AntTree;
+const {TreeNode: AntTreeNode} = AntTree;
 
-export class EditableTreeNode extends TreeNode {
+export class TreeNode extends AntTreeNode {
 
     state = {
         iconDivDisplay: 'none',
@@ -54,7 +54,9 @@ export class EditableTreeNode extends TreeNode {
 
     changeText = (e) => {
         e.persist();
-        this.setState(produce(draft =>{ draft.editText = e.target.value}))
+        this.setState(produce(draft => {
+            draft.editText = e.target.value
+        }))
     }
 
     render() {
@@ -103,7 +105,7 @@ export class EditableTreeNode extends TreeNode {
         )
         return (
             <>
-                <TreeNode   {...this.props} title={title} blockNode/>
+                <AntTreeNode   {...this.props} title={title} blockNode/>
             </>
         )
     }

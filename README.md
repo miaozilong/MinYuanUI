@@ -46,7 +46,7 @@
 
 
 
-### EditableTreeNode 可编辑树节点
+### TreeNode 可编辑树节点
 
 #### 说明:
 
@@ -69,6 +69,8 @@
 | handleClickEdit   | 点击编辑按钮时的回调函数 | function(treenode)            |        |
 | handleClickDelete | 点击删除按钮时的回调函数 | function(treenode)            |        |
 | handleFinishEdit  | 编辑完成后的回调函数     | function(treenode,{newTitle}) |        |
+| editable          | 该节点是否能编辑         | boolean                       | false  |
+| deletable         | 该节点是否能编辑         | boolean                       | false  |
 
 其他功能: 编辑状态下按回车或者点击勾选图标,可触发编辑完成功能
 
@@ -82,6 +84,7 @@
         handleClickEdit={this.test1}
         handleClickDelete={this.test2}
         handleHandleEdit={this.test3}
+        editable
         />
 </Tree>
 ```
