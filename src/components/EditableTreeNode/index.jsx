@@ -8,7 +8,8 @@ export class EditableTreeNode extends TreeNode {
 
     state = {
         iconDivDisplay: 'none',
-        editing: false
+        editing: false,
+        editText: ''
     }
 
     handleClickEdit = e => {
@@ -41,7 +42,7 @@ export class EditableTreeNode extends TreeNode {
             draft.editing = false
         }))
         if (this.props.handleFinishEdit) {
-            this.props.handleFinishEdit(this, {newTitle: e.target.value});
+            this.props.handleFinishEdit(this, {newTitle: this.state.editText});
         }
     }
     handleKeyEditTitle = e => {
@@ -49,6 +50,11 @@ export class EditableTreeNode extends TreeNode {
             //    按了回车
             this.handleFinishEdit(e)
         }
+    }
+
+    changeText = (e) => {
+        e.persist();
+        this.setState(produce(draft =>{ draft.editText = e.target.value}))
     }
 
     render() {
@@ -64,6 +70,7 @@ export class EditableTreeNode extends TreeNode {
                     <div style={{width: 'calc(100% - 85px)', display: 'inline-block'}}>
                         {this.state.editing ? <Input size="small" style={{display: 'inline-block'}}
                                                      onKeyUp={this.handleKeyEditTitle}
+                                                     onChange={this.changeText}
                                                      defaultValue={originTitle}/> : originTitle}
                     </div>
                     <div style={{
