@@ -32,7 +32,7 @@ export class Tree extends AntTree {
     }
 
     onExpand = (expandedKeys, {expanded, node}) => {
-        debugger
+        // debugger
         // expandedKeys.reverse()
         if (expanded) {
             this.setState(produce(draft => {
@@ -71,7 +71,16 @@ export class Tree extends AntTree {
                     onSelect={this.handleOnSelect}
                     expandedKeys={this.state.expandedKeys}
                     onExpand={this.onExpand}
+
                 >
+                    {/*
+                        需要写 5 个方法
+                        增加单个节点                      addSingleChildren    (最后要记得 如果不是根节点将当前节点isLeaf设为false)
+                        异步增加节点/增加多个子节点       addChildrens
+                        删除节点                          removeNode
+                        修改节点名称                      renameNode
+                        重新渲染节点  (待定) 可能不要
+                    */}
                     {this.renderTreeNodes(this.treeNodeData)}
                 </AntTree>
             </div>
