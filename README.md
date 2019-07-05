@@ -137,6 +137,78 @@ treeNodeData =[
 
 
 
+### TableInformation 表格信息框
+
+#### 说明:
+
+用于显示**一行**信息的表格,可在界面上修改部分列数据,修改数据后,需要提交AJAX请求,重新获取数据
+
+![1562310648867](assets/1562310648867.png)
+
+![1562310629200](assets/1562310629200.png)
+
+
+
+#### 声明:
+
+`import {TableInformation} from 'minyuanui';`
+
+#### API:
+
+| 参数           | 说明                                                         | 类型                 | 默认值 | 是否必须 |
+| -------------- | ------------------------------------------------------------ | -------------------- | ------ | -------- |
+| columns        | 参考AntDesign中Table的[columns](<https://ant-design.gitee.io/components/table-cn/#Table>)对象,增加了editable:true属性,用于表示该列可修改 | array object         | 无     | 是       |
+| dataSource     | 参考AntDesign中Table的dataSource对象,目前只支持一行数据      | array object         | 无     | 是       |
+| operationTitle | 操作列的标题,如果没有改属性,则不会自动生成操作列             | string\|react node   | 无     | 否       |
+| handleSave     | 保存后的回调函数                                             | function(new record) | 无     | 是       |
+| handleOperate  | 点击操作按钮之后的回调                                       | function             | 无     | 否       |
+
+其他API参考ant design的Table组件 [传送门](<https://ant-design.gitee.io/components/table-cn/#Table>)
+
+#### Samples:
+
+```jsx
+class TableInformationDemo extends React.Component {
+    columns = [
+        {
+            title:'名称',
+            dataIndex: 'name',
+            key: 'name',
+            editable: true,
+            width: 200
+        },
+        {
+            title: '住址',
+            dataIndex: 'address',
+            key: 'address',
+        },
+    ];
+    dataSource = [{
+        key: 0,
+        name: '测试名称',
+        address: '测试地址',
+    }]
+
+    handleSave(newRecord,) {
+        console.log(newRecord)
+    }
+
+    handleOperate = () => {
+        console.log('handleOperate')
+    }
+
+    render() {
+        return (
+            <div className={styles.normal}>
+                <TableInformation columns={this.columns} operationTitle='操作' handleSave={this.handleSave}
+                                  dataSource={this.dataSource} handleOperate={this.handleOperate}
+                />
+            </div>
+        );
+    }
+}
+```
+
 
 ## 贡献
 

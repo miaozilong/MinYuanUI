@@ -3,7 +3,6 @@ import {TableInformation} from '@/components/TableInformation'
 import React from 'react'
 
 export default  class TableInformationDemo extends React.Component {
-
     columns = [
         {
             title:'名称',
@@ -18,7 +17,6 @@ export default  class TableInformationDemo extends React.Component {
             key: 'address',
         },
     ];
-
     dataSource = [{
         key: 0,
         name: '测试名称',
@@ -42,5 +40,4 @@ export default  class TableInformationDemo extends React.Component {
             </div>
         );
     }
-
 }
