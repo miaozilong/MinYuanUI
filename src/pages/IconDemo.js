@@ -8,6 +8,7 @@ export default class IconDemo extends React.Component {
     render() {
         return (
             <Icon component='tableEdit'
+                  style={{fontSize:30}}
             />
         );
     }
