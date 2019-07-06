@@ -25,7 +25,7 @@ export class Icon extends React.Component {
             IconElement = <AntdIcon {...this.props}  />
         }
         return (
-            <div style={}>
+            <div >
                 {IconElement}
             </div>
         );
