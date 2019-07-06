@@ -20,6 +20,7 @@ class EditableCell extends React.Component {
 
     toggleEdit = () => {
         const editing = !this.state.editing;
+        // 如果state中有多个值,这儿就有问题 需要使用 immer
         this.setState({editing}, () => {
             if (editing) {
                 this.input.focus();
@@ -38,6 +39,13 @@ class EditableCell extends React.Component {
         });
     };
 
+    // 在输入框中按下 esc 键时,取消编辑状态
+    inputKeyUp=(e)=>{
+        if (e.keyCode === 27) {
+            this.toggleEdit();
+        }
+    }
+
     renderCell = form => {
         this.form = form;
         const {children, dataIndex, record, title} = this.props;
@@ -48,11 +56,11 @@ class EditableCell extends React.Component {
                     rules: [
                         {
                             required: true,
-                            message: `${title} is required.`,
+                            message: `${title} 不能为空.`,
                         },
                     ],
                     initialValue: record[dataIndex],
-                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save}/>)}
+                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save} onKeyUp={this.inputKeyUp}/>)}
             </Form.Item>
         ) : (
             <div
@@ -60,7 +68,7 @@ class EditableCell extends React.Component {
                 style={{paddingRight: 24}}
                 onClick={this.toggleEdit}
             >
-                {children}&nbsp;&nbsp;<Icon type="edit"  style={{fontSize:18}} theme="twoTone"/>
+                {children}&nbsp;&nbsp;<Icon type="edit" style={{fontSize: 18}} theme="twoTone"/>
             </div>
         );
     };
@@ -151,6 +159,7 @@ export class TableInformation extends React.Component {
             }
             return {
                 ...col,
+                // title:col.title+'图标',   //图标放到列头 但是效果不好看
                 align: 'center',
                 onCell: record => ({
                     record,
