@@ -1,7 +1,9 @@
-import {Table, Input, Button, Popconfirm, Form, Icon} from 'antd';
+import {Table, Input, Button, Popconfirm, Form, } from 'antd';
+import {Icon} from '@/components/Icon'
 import styles from './index.less'
 import produce from 'immer'
 import _ from 'lodash'
+import React from "react";
 
 const EditableContext = React.createContext();
 
@@ -113,7 +115,8 @@ export class TableInformation extends React.Component {
                 align: 'center'
             });
             // todo  目前只支持一行表格
-            _.set(dataSource[0], 'operate', <Icon
+            _.set(dataSource[0], 'operate', <Icon   component='tableEdit'
+                                                    focuschange='change'
                 style={{fontSize: 25}} type='edit' onClick={handleOperate ? handleOperate : void (0)}/>)
         }
         this.columns = columns;

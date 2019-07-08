@@ -1,33 +1,75 @@
 import React from 'react';
 import {Icon as AntdIcon} from 'antd';
 import TableEdit from './svg/table-edit.svg'
-
+import produce from 'immer';
+import PropTypes from 'prop-types';
 
 export class Icon extends React.Component {
 
     state = {
-        mouseOver: false
+        mouseOver: false,
+        originColor: '#8f9599',
+        originFontSize: 12,
+        style: {
+            color: '#8f9599',
+            fontSize: '12'
+        }
     }
 
-    render() {
-        let {component} = this.props;
+    svgComponent = {
+        "tableEdit": TableEdit,
+    }
 
+    componentWillMount() {
+        const {style} = this.props;
+        this.setState(produce(draft => {
+            if (style) {
+                if (style.color) {
+                    draft.style.color = style.color;
+                    draft.originColor = style.color;
+                }
+                if (style.fontSize) {
+                    draft.style.fontSize = style.fontSize;
+                    draft.originFontSize = style.fontSize;
+                }
+            }
+        }))
+    }
+
+    handleMouseOver = () => {
+        this.setState(produce(draft => {
+            draft.style.color = '#005bac'   // 鼠标放上来的时候变色
+            // draft.style.fontSize = this.state.originFontSize * 1.2  // 鼠标放上来的时候大
+        }))
+    }
+    handleMouseLeave = () => {
+        this.setState(produce(draft => {
+            draft.style.color = this.state.originColor   // 鼠标移开的时候变色
+            draft.style.fontSize = this.state.originFontSize
+        }))
+    }
+
+
+    render() {
+        let {component, focuschange} = this.props;
+        const {style} = this.state;
         let IconElement;
         if (component) {
             if (typeof component === 'string') {
                 //    外界传入了图标字符串 如tableEdit
-                switch (component) {
-                    case 'tableEdit':
-                        IconElement = <AntdIcon {...this.props} component={TableEdit}/>
-                }
+                let svgComponent;
+                IconElement = <AntdIcon {...this.props} component={this.svgComponent[component]} style={style}
+                                        onMouseOver={focuschange ? this.handleMouseOver : void (0)}
+                                        onMouseLeave={focuschange ? this.handleMouseLeave : void (0)}/>
             }
         } else {
             IconElement = <AntdIcon {...this.props}  />
         }
         return (
-            <div >
+            <span style={{cursor: "pointer"}}>
                 {IconElement}
-            </div>
+            </span>
         );
     }
 }
+

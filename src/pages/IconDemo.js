@@ -3,13 +3,12 @@ import {Icon} from '@/components/Icon'
 import React from 'react'
 
 export default class IconDemo extends React.Component {
-
-
     render() {
         return (
             <Icon
                 component='tableEdit'
-                style={{fontSize: 30, color: 'red'}}
+                focuschange='change'
+                style={{fontSize:30}}
             />
         );
     }
