@@ -1,5 +1,5 @@
 import {Table, Input, Button, Popconfirm, Form, } from 'antd';
-import {Icon} from '@/components/Icon'
+import {Icon} from '../Icon'
 import styles from './index.less'
 import produce from 'immer'
 import _ from 'lodash'
