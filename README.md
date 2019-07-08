@@ -209,6 +209,56 @@ class TableInformationDemo extends React.Component {
 }
 ```
 
+### Icon 图标
+
+### 说明:
+
+用于显示一个图标,目前图标由**代艺成**设计
+
+![1562562264840](assets/1562562264840.png)
+
+光标放到图标上后,会自动变色
+
+
+
+#### 声明:
+
+`import {Icon} from 'minyuanui';`
+
+#### API:
+
+| 参数        | 说明                        | 类型                    | 默认值 | 是否必须 |
+| ----------- | --------------------------- | ----------------------- | ------ | -------- |
+| component   | 图标组件                    | string\|reactnode       | 无     | 否       |
+| focuschange | 光标放到图标上之后,是否变色 | boolean\|string\|object | false  | 否       |
+
+component的值清单:
+
+| 值        | 图标                                       |
+| --------- | ------------------------------------------ |
+| tableEdit | ![1562562725960](assets/1562562725960.png) |
+
+*其他的值陆续添加中*
+
+其他API参考ant design的Icon组件 [传送门](<https://ant-design.gitee.io/components/icon-cn/#API>)
+
+已知bug,focuschange传入boolean值,会报警告 需要时间解决
+
+#### Samples:
+
+```jsx
+export default class IconDemo extends React.Component {
+    render() {
+        return (
+            <Icon
+                component='tableEdit'
+                focuschange='change'
+                style={{fontSize:30}}
+            />
+        );
+    }
+}
+```
 
 ## 贡献
 

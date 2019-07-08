@@ -7,7 +7,7 @@ export default class IconDemo extends React.Component {
         return (
             <Icon
                 component='tableEdit'
-                focuschange='change'
+                focuschange
                 style={{fontSize:30}}
             />
         );

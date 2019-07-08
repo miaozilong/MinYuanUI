@@ -8,7 +8,6 @@ export default {
             dynamicImport: false,
             title: 'MinYuanUI',
             dll: false,
-
             routes: {
                 exclude: [
                     /components\//,
