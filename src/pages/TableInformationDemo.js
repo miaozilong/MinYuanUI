@@ -1,11 +1,13 @@
 import styles from './index.css';
 import {TableInformation} from '@/components/TableInformation'
 import React from 'react'
+import {connect} from 'dva';
 
-export default  class TableInformationDemo extends React.Component {
+@connect(({demo: {dataSource}}) => ({dataSource}))
+export default class TableInformationDemo extends React.Component {
     columns = [
         {
-            title:'名称',
+            title: '名称',
             dataIndex: 'name',
             key: 'name',
             editable: true,
@@ -17,11 +19,12 @@ export default  class TableInformationDemo extends React.Component {
             key: 'address',
         },
     ];
-    dataSource = [{
-        key: 0,
-        name: '测试名称',
-        address: '测试地址',
-    }]
+
+    componentWillMount() {
+        const {dispatch} = this.props;
+        dispatch({type: 'demo/fetch', payload: {}})
+    }
+
 
     handleSave(newRecord,) {
         console.log(newRecord)
@@ -32,10 +35,12 @@ export default  class TableInformationDemo extends React.Component {
     }
 
     render() {
+        const {dataSource} = this.props;
+        console.log(dataSource)
         return (
             <div className={styles.normal}>
                 <TableInformation columns={this.columns} operationTitle='操作' handleSave={this.handleSave}
-                                  dataSource={this.dataSource} handleOperate={this.handleOperate}
+                                  dataSource={dataSource} handleOperate={this.handleOperate}
                 />
             </div>
         );

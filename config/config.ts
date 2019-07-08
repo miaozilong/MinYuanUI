@@ -4,12 +4,16 @@ export default {
         // ref: https://umijs.org/plugin/umi-plugin-react.html
         ['umi-plugin-react', {
             antd: true,
-            dva: false,
+            dva: true,
             dynamicImport: false,
             title: 'MinYuanUI',
             dll: false,
             routes: {
                 exclude: [
+                    /models\//,
+                    /services\//,
+                    /model\.(t|j)sx?$/,
+                    /service\.(t|j)sx?$/,
                     /components\//,
                 ],
             },
