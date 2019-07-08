@@ -106,19 +106,7 @@ export class TableInformation extends React.Component {
 
     componentWillMount() {
         let {columns, operationTitle, dataSource, handleOperate} = this.props;
-        if (operationTitle) {
-            // 如果有*操作*这一列
-            columns.push({
-                title: operationTitle,
-                dataIndex: 'operate',
-                key: 'operate',
-                align: 'center'
-            });
-            // todo  目前只支持一行表格
-            _.set(dataSource[0], 'operate', <Icon   component='tableEdit'
-                                                    focuschange='change'
-                style={{fontSize: 25}} type='edit' onClick={handleOperate ? handleOperate : void (0)}/>)
-        }
+
         this.columns = columns;
         this.setState(produce(draft => {
             draft.dataSource = dataSource
@@ -149,7 +137,7 @@ export class TableInformation extends React.Component {
     };
 
     render() {
-        const {dataSource} = this.state;
+        const {dataSource} = this.props;
         const components = {
             body: {
                 row: EditableFormRow,
@@ -173,6 +161,20 @@ export class TableInformation extends React.Component {
                 }),
             };
         });
+        if (operationTitle) {
+            // 如果有*操作*这一列
+            columns.push({
+                title: operationTitle,
+                dataIndex: 'operate',
+                key: 'operate',
+                align: 'center'
+            });
+            // todo  目前只支持一行表格
+            _.set(dataSource[0], 'operate', <Icon   component='tableEdit'
+                                                    focuschange='change'
+                                                    style={{fontSize: 25}} type='edit' onClick={handleOperate ? handleOperate : void (0)}/>)
+        }
+
         return (
             <div>
                 <Table
