@@ -3,7 +3,7 @@ import {TableInformation} from '@/components/TableInformation'
 import React from 'react'
 import {connect} from 'dva';
 
-@connect(({demo: {dataSource}}) => ({dataSource}))
+@connect(({demo: {dataSource}, loading}) => ({dataSource, loading}))
 export default class TableInformationDemo extends React.Component {
     columns = [
         {
@@ -35,12 +35,14 @@ export default class TableInformationDemo extends React.Component {
     }
 
     render() {
-        const {dataSource} = this.props;
+        const {dataSource, loading} = this.props;
+        const tableLoading = !!loading.effects['demo/fetch'];
         console.log(dataSource)
         return (
             <div className={styles.normal}>
                 <TableInformation columns={this.columns} operationTitle='操作' handleSave={this.handleSave}
                                   dataSource={dataSource} handleOperate={this.handleOperate}
+                                  loading={tableLoading}
                 />
             </div>
         );

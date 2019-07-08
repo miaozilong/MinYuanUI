@@ -179,6 +179,7 @@ export class TableInformation extends React.Component {
         return (
             <div>
                 <Table
+                    {...this.props}
                     components={components}
                     rowClassName={() => styles['editable-row']}
                     bordered

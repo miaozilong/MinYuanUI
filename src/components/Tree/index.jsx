@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Tree as AntTree} from 'antd';
+import {Tree as AntTree, Spin} from 'antd';
 import {TreeNode} from '../TreeNode'
 import produce from 'immer'
 import _ from 'lodash'
@@ -12,7 +12,7 @@ export class Tree extends AntTree {
 
     componentWillMount() {
         let {treeNodeData} = this.props;
-        this.treeNodeData = treeNodeData
+        // this.treeNodeData = treeNodeData
         // 展开的节点
         let {expandedKeys} = this.props;
         this.setState(produce(draft => {
@@ -63,26 +63,27 @@ export class Tree extends AntTree {
 
     render() {
         // console.log(this.treeNodeData)
-        return (
-            <div>
-                <AntTree
-                    {...this.props}
-                    blockNode={true}
-                    onSelect={this.handleOnSelect}
-                    expandedKeys={this.state.expandedKeys}
-                    onExpand={this.onExpand}
+        let {treeNodeData, loading} = this.props;
 
-                >
-                    {/*
-                        需要写 5 个方法
-                        增加单个节点                      addSingleChildren    (最后要记得 如果不是根节点将当前节点isLeaf设为false)
-                        异步增加节点/增加多个子节点       addChildrens
-                        删除节点                          removeNode
-                        修改节点名称                      renameNode
-                        重新渲染节点  (待定) 可能不要
-                    */}
-                    {this.renderTreeNodes(this.treeNodeData)}
-                </AntTree>
+        return (
+            <div style={{minHeight: 60}}>
+                    <AntTree
+                        {...this.props}
+                        blockNode={true}
+                        onSelect={this.handleOnSelect}
+                        expandedKeys={this.state.expandedKeys}
+                        onExpand={this.onExpand}
+                    >
+                        {/*
+                            需要写 5 个方法
+                            增加单个节点                      addSingleChildren    (最后要记得 如果不是根节点将当前节点isLeaf设为false)
+                            异步增加节点/增加多个子节点       addChildrens
+                            删除节点                          removeNode
+                            修改节点名称                      renameNode
+                            重新渲染节点  (待定) 可能不要
+                        */}
+                        {this.renderTreeNodes(treeNodeData)}
+                    </AntTree>
             </div>
         );
     }
