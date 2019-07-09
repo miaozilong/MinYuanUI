@@ -138,7 +138,7 @@ export class TableInformation extends React.Component {
     };
 
     render() {
-        const {dataSource, operationTitle} = this.props;
+        const {dataSource, operationTitle,handleOperate} = this.props;
         const components = {
             body: {
                 row: EditableFormRow,
