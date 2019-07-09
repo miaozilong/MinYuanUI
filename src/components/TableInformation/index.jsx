@@ -1,4 +1,4 @@
-import {Table, Input, Button, Popconfirm, Form, } from 'antd';
+import {Table, Input, Button, Popconfirm, Form,} from 'antd';
 import {Icon} from '../Icon'
 import styles from './index.less'
 import produce from 'immer'
@@ -42,7 +42,7 @@ class EditableCell extends React.Component {
     };
 
     // 在输入框中按下 esc 键时,取消编辑状态
-    inputKeyUp=(e)=>{
+    inputKeyUp = (e) => {
         if (e.keyCode === 27) {
             this.toggleEdit();
         }
@@ -62,7 +62,8 @@ class EditableCell extends React.Component {
                         },
                     ],
                     initialValue: record[dataIndex],
-                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save} onKeyUp={this.inputKeyUp}/>)}
+                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save}
+                          onKeyUp={this.inputKeyUp}/>)}
             </Form.Item>
         ) : (
             <div
@@ -137,7 +138,7 @@ export class TableInformation extends React.Component {
     };
 
     render() {
-        const {dataSource} = this.props;
+        const {dataSource, operationTitle} = this.props;
         const components = {
             body: {
                 row: EditableFormRow,
@@ -170,9 +171,10 @@ export class TableInformation extends React.Component {
                 align: 'center'
             });
             // todo  目前只支持一行表格
-            _.set(dataSource[0], 'operate', <Icon   component='tableEdit'
-                                                    focuschange='change'
-                                                    style={{fontSize: 25}} type='edit' onClick={handleOperate ? handleOperate : void (0)}/>)
+            _.set(dataSource[0], 'operate', <Icon component='tableEdit'
+                                                  focuschange='change'
+                                                  style={{fontSize: 25}} type='edit'
+                                                  onClick={handleOperate ? handleOperate : void (0)}/>)
         }
 
         return (

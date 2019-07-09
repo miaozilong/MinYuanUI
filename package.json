@@ -1,6 +1,6 @@
 {
   "name": "minyuanui",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "民原科技的UI库",
   "main": "index.js",
   "scripts": {
