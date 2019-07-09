@@ -1,10 +1,9 @@
-import {Table, Input, Button, Popconfirm, Form, } from 'antd';
+import {Table, Input, Button, Popconfirm, Form,} from 'antd';
 import {Icon} from '../Icon'
 import styles from './index.less'
 import produce from 'immer'
 import _ from 'lodash'
 import React from "react";
-
 
 const EditableContext = React.createContext();
 
@@ -13,9 +12,10 @@ const EditableRow = ({form, index, ...props}) => (
         <tr {...props} />
     </EditableContext.Provider>
 );
+
 const EditableFormRow = Form.create()(EditableRow);
 
-export default class EditableCell extends React.Component {
+class EditableCell extends React.Component {
     state = {
         editing: false,
     };
@@ -42,7 +42,7 @@ export default class EditableCell extends React.Component {
     };
 
     // 在输入框中按下 esc 键时,取消编辑状态
-    inputKeyUp=(e)=>{
+    inputKeyUp = (e) => {
         if (e.keyCode === 27) {
             this.toggleEdit();
         }
@@ -62,7 +62,8 @@ export default class EditableCell extends React.Component {
                         },
                     ],
                     initialValue: record[dataIndex],
-                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save} onKeyUp={this.inputKeyUp}/>)}
+                })(<Input ref={node => (this.input = node)} onPressEnter={this.save} onBlur={this.save}
+                          onKeyUp={this.inputKeyUp}/>)}
             </Form.Item>
         ) : (
             <div
@@ -98,34 +99,24 @@ export default class EditableCell extends React.Component {
     }
 }
 
-
 export class TableInformation extends React.Component {
 
-    // state = {
-    //     dataSource: []
-    // }
+    state = {
+        dataSource: []
+    }
 
     componentWillMount() {
         let {columns, operationTitle, dataSource, handleOperate} = this.props;
-        if (operationTitle) {
-            // 如果有*操作*这一列
-            columns.push({
-                title: operationTitle,
-                dataIndex: 'operate',
-                key: 'operate',
-                align: 'center'
-            });
 
-        }
         this.columns = columns;
-        // this.setState(produce(draft => {
-        //     draft.dataSource = dataSource
-        // }))
+        this.setState(produce(draft => {
+            draft.dataSource = dataSource
+        }))
     }
 
     handleSave = row => {
-        const oldData = [...this.props.dataSource];
-        const newData = [...this.props.dataSource];
+        const oldData = [...this.state.dataSource];
+        const newData = [...this.state.dataSource];
         const index = newData.findIndex(item => row.key === item.key);
         const item = newData[index];
         newData.splice(index, 1, {
@@ -147,12 +138,7 @@ export class TableInformation extends React.Component {
     };
 
     render() {
-        const {dataSource,handleOperate} = this.props;
-        // todo  目前只支持一行表格
-        _.set(dataSource[0], 'operate', <Icon   component='tableEdit'
-                                                focuschange='change'
-                                                style={{fontSize: 25}} type='edit' onClick={handleOperate ? handleOperate : void (0)}/>)
-
+        const {dataSource, operationTitle,handleOperate} = this.props;
         const components = {
             body: {
                 row: EditableFormRow,
@@ -176,10 +162,24 @@ export class TableInformation extends React.Component {
                 }),
             };
         });
+        if (operationTitle) {
+            // 如果有*操作*这一列
+            columns.push({
+                title: operationTitle,
+                dataIndex: 'operate',
+                key: 'operate',
+                align: 'center'
+            });
+            // todo  目前只支持一行表格
+            _.set(dataSource[0], 'operate', <Icon component='tableEdit'
+                                                  focuschange='change'
+                                                  style={{fontSize: 25}} type='edit'
+                                                  onClick={handleOperate ? handleOperate : void (0)}/>)
+        }
+
         return (
             <div>
                 <Table
-                    {...this.props}
                     components={components}
                     rowClassName={() => styles['editable-row']}
                     bordered

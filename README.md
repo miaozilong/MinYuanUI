@@ -211,7 +211,7 @@ class TableInformationDemo extends React.Component {
 
 ### Icon 图标
 
-### 说明:
+#### 说明:
 
 用于显示一个图标,目前图标由**代艺成**设计
 
@@ -259,6 +259,43 @@ export default class IconDemo extends React.Component {
     }
 }
 ```
+### Divider 分割线
+
+#### 说明:
+
+用于显示一条水平分割线,样式由**代艺成**设计
+
+![1562670894125](assets/1562670894125.png)
+
+文字左侧不再有线,右侧的线为渐变线 线条渐变  #d2dded--#ffffff
+
+#### 声明:
+
+`import {Divider} from 'minyuanui';`
+
+#### API:
+
+没有API
+
+其他API参考ant design的Divider组件 [传送门](<https://ant-design.gitee.io/components/divider-cn/#API>)
+
+#### Samples:
+
+```jsx
+export default class IconDemo extends React.Component {
+    render() {
+        return (
+            <div style={{width: 580}}>
+                <Divider orientation='left'>文字</Divider>
+            </div>
+        );
+    }
+}
+```
+
+
+
+
 
 ## 贡献
 
