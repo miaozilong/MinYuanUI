@@ -293,7 +293,42 @@ export default class IconDemo extends React.Component {
 }
 ```
 
+### Button 按钮
 
+#### 说明:
+
+默认背景透明,悬浮时背景是蓝色的按钮
+
+![1562830295248](assets/1562830295248.png)
+
+![1562830312699](assets/1562830312699.png)
+
+
+
+#### 声明:
+
+`import {Button} from 'minyuanui';`
+
+#### API:
+
+| 参数   | 说明         | 类型              | 默认值 | 是否必须 |
+| ------ | ------------ | ----------------- | ------ | -------- |
+| icon   | 图标组件     | string\|reactnode | 无     | 是       |
+| notext | 是否显示文字 | boolean           | false  | 否       |
+
+其他API参考ant design的Divider组件 [传送门](<https://ant-design.gitee.io/components/button-cn/#API>)
+
+#### Samples:
+
+```jsx
+export default class ButtonDemo extends React.Component {
+    render() {
+        return (
+            <Button icon='tableEdit' notext={false}>测试</Button>
+        );
+    }
+}
+```
 
 
 

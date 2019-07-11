@@ -34,13 +34,17 @@ export class Button extends React.Component {
     }
 
     render() {
-        const {icon} = this.props;
+        const {icon, notext, children} = this.props;
+        let childrenElement;
+        if (!notext) {
+            childrenElement = (<span style={{marginLeft: 3, marginRight:5,transform:'translateY(-3px)'}}>{children}</span>)
+        }
         let iconColor = this.state.hover ? '#ffffff' : '#005bac';
-        console.log(iconColor)
+        // console.log(iconColor)
         let iconElement = (
             <Icon
-                component='tableEdit'
-                style={{fontSize: 21, color: iconColor}}
+                component={icon}
+                style={{fontSize: 21, color: iconColor, transform: 'translateX(-3px)'}}
             />
         )
         return (
@@ -51,9 +55,7 @@ export class Button extends React.Component {
                            onMouseLeave={this.handleMouseLeave}
                 >
                     {iconElement}
-                    <span style={{transform: 'translateY(-3px)'}}>
-                        {this.props.children}
-                    </span>
+                    {childrenElement}
                 </AntButton>
             </>
         )
