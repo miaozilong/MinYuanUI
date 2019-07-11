@@ -77,7 +77,7 @@ export class Tree extends AntTree {
                         {/*
                             需要写 5 个方法
                             增加单个节点                      addSingleChildren    (最后要记得 如果不是根节点将当前节点isLeaf设为false)
-                            异步增加节点/增加多个子节点       addChildrens
+                            异步加载/增加多个子节点       addChildren
                             删除节点                          removeNode
                             修改节点名称                      renameNode
                             重新渲染节点  (待定) 可能不要

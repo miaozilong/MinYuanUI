@@ -51,8 +51,10 @@ export class Icon extends React.Component {
 
 
     render() {
-        let {component, focuschange} = this.props;
-        const {style} = this.state;
+        let {component, focuschange,style} = this.props;
+        if (!style) {
+            style=this.state.style;
+        }
         let IconElement;
         if (component) {
             if (typeof component === 'string') {
@@ -66,7 +68,7 @@ export class Icon extends React.Component {
             IconElement = <AntdIcon {...this.props}  />
         }
         return (
-            <span style={{cursor: "pointer"}}>
+            <span style={{cursor: "pointer", lineHeight: '1', marginRight: 3}}>
                 {IconElement}
             </span>
         );
