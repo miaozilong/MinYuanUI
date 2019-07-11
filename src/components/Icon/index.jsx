@@ -51,8 +51,8 @@ export class Icon extends React.Component {
 
 
     render() {
-        let {component, focuschange,style} = this.props;
-        if (!style) {
+        let {component, focuschange, style,btnIcon} = this.props;
+        if (!btnIcon) {
             style=this.state.style;
         }
         let IconElement;

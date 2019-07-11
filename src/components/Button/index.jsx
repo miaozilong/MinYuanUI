@@ -44,6 +44,7 @@ export class Button extends React.Component {
         let iconElement = (
             <Icon
                 component={icon}
+                btnIcon
                 style={{fontSize: 21, color: iconColor, transform: 'translateX(-3px)'}}
             />
         )
