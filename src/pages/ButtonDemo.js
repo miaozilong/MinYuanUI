@@ -6,7 +6,7 @@ import React from 'react'
 export default class ButtonDemo extends React.Component {
     render() {
         return (
-            <Button icon='tableEdit' notext={false}>测试</Button>
+            <Button icon='RFID_布防' notext={false}>测试</Button>
         );
     }
 }

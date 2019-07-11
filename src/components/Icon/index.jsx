@@ -1,8 +1,7 @@
 import React from 'react';
 import {Icon as AntdIcon} from 'antd';
-import TableEdit from './svg/table-edit.svg'
+
 import produce from 'immer';
-import PropTypes from 'prop-types';
 import {SvgComponent} from './svg/SvgComponent'
 
 export class Icon extends React.Component {
