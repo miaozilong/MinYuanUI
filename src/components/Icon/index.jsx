@@ -3,6 +3,7 @@ import {Icon as AntdIcon} from 'antd';
 import TableEdit from './svg/table-edit.svg'
 import produce from 'immer';
 import PropTypes from 'prop-types';
+import {SvgComponent} from './svg/SvgComponent'
 
 export class Icon extends React.Component {
 
@@ -14,10 +15,6 @@ export class Icon extends React.Component {
             color: '#8f9599',
             fontSize: '12'
         }
-    }
-
-    svgComponent = {
-        "tableEdit": TableEdit,
     }
 
     componentWillMount() {
@@ -51,16 +48,16 @@ export class Icon extends React.Component {
 
 
     render() {
-        let {component, focuschange, style,btnIcon} = this.props;
+        let {component, focuschange, style, btnIcon} = this.props;
         if (!btnIcon) {
-            style=this.state.style;
+            style = this.state.style;
         }
         let IconElement;
         if (component) {
             if (typeof component === 'string') {
                 //    外界传入了图标字符串 如tableEdit
-                let svgComponent;
-                IconElement = <AntdIcon {...this.props} component={this.svgComponent[component]} style={style}
+
+                IconElement = <AntdIcon {...this.props} component={SvgComponent[component]} style={style}
                                         onMouseOver={focuschange ? this.handleMouseOver : void (0)}
                                         onMouseLeave={focuschange ? this.handleMouseLeave : void (0)}/>
             }
