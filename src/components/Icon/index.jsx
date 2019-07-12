@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon as AntdIcon} from 'antd';
 
 import produce from 'immer';
-import {SvgComponent} from './svg/SvgComponent'
+import {SvgComponent} from './SvgComponent'
 
 export class Icon extends React.Component {
 

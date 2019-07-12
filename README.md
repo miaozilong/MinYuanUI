@@ -215,7 +215,7 @@ class TableInformationDemo extends React.Component {
 
 用于显示一个图标,目前图标由**代艺成**设计
 
-![1562562264840](assets/1562562264840.png)
+![1562893262639](assets/1562893262639.png)
 
 光标放到图标上后,会自动变色
 
@@ -234,11 +234,7 @@ class TableInformationDemo extends React.Component {
 
 component的值清单:
 
-| 值        | 图标                                       |
-| --------- | ------------------------------------------ |
-| tableEdit | ![1562562725960](assets/1562562725960.png) |
-
-*其他的值陆续添加中*
+参考示例代码和截图
 
 其他API参考ant design的Icon组件 [传送门](<https://ant-design.gitee.io/components/icon-cn/#API>)
 
@@ -250,14 +246,50 @@ component的值清单:
 export default class IconDemo extends React.Component {
     render() {
         return (
-            <Icon
-                component='tableEdit'
-                focuschange='change'
-                style={{fontSize:30}}
-            />
+            <div>
+                <ol>
+                    <li>RFID<Icon component='RFID' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>RFID_布防<Icon component='RFID_布防' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>下拉<Icon component='下拉' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>人脸相机<Icon component='人脸相机' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>人脸相机_布控<Icon component='人脸相机_布控' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>保存<Icon component='保存' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>入库开始时间<Icon component='入库开始时间' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>入库结束时间<Icon component='入库结束时间' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>分组删除<Icon component='分组删除' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>分组导入<Icon component='分组导入' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>分组排序<Icon component='分组排序' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>分组添加<Icon component='分组添加' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>分组选中编辑<Icon component='分组选中编辑' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>列表中删除<Icon component='列表中删除' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>列表设备导入<Icon component='列表设备导入' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>列表设备批量编辑<Icon component='列表设备批量编辑' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>列表设备排序<Icon component='列表设备排序' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>列表设备移组<Icon component='列表设备移组' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>手动拉取<Icon component='手动拉取' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>报警点<Icon component='报警点' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>排序<Icon component='排序' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>服务器<Icon component='服务器' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>服务子项<Icon component='服务子项' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>枪机_在线<Icon component='枪机_在线' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>添加分组<Icon component='添加分组' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>添加用户<Icon component='添加用户' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>添加用户组<Icon component='添加用户组' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>球机_在线<Icon component='球机_在线' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>用户<Icon component='用户' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>表格编辑<Icon component='表格编辑' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>表格表头处编辑<Icon component='表格表头处编辑' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>车辆出入口<Icon component='车辆出入口' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>车辆出入口_布防<Icon component='车辆出入口_布防' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>门开<Icon component='门开' focuschange='change' style={{fontSize: '2em'}} /></li>
+                    <li>门开_布防<Icon component='门开_布防' focuschange='change' style={{fontSize: '2em'}} /></li>
+
+                </ol>
+            </div>
         );
     }
 }
+
 ```
 ### Divider 分割线
 
@@ -299,9 +331,9 @@ export default class IconDemo extends React.Component {
 
 默认背景透明,悬浮时背景是蓝色的按钮
 
-![1562830295248](assets/1562830295248.png)
+![1562893365977](assets/1562893365977.png)
 
-![1562830312699](assets/1562830312699.png)
+
 
 
 
@@ -316,7 +348,7 @@ export default class IconDemo extends React.Component {
 | icon   | 图标组件     | string\|reactnode | 无     | 是       |
 | notext | 是否显示文字 | boolean           | false  | 否       |
 
-其他API参考ant design的Divider组件 [传送门](<https://ant-design.gitee.io/components/button-cn/#API>)
+其他API参考ant design的Button组件 [传送门](<https://ant-design.gitee.io/components/button-cn/#API>)
 
 #### Samples:
 
@@ -324,10 +356,47 @@ export default class IconDemo extends React.Component {
 export default class ButtonDemo extends React.Component {
     render() {
         return (
-            <Button icon='tableEdit' notext={false}>测试</Button>
+            <div>
+                <Button icon='RFID' notext={false}>RFID</Button>
+                <Button icon='RFID_布防' notext={false}>RFID_布防</Button>
+                <Button icon='下拉' notext={false}>下拉</Button>
+                <Button icon='人脸相机' notext={false}>人脸相机</Button>
+                <Button icon='人脸相机_布控' notext={false}>人脸相机_布控</Button>
+                <Button icon='保存' notext={false}>保存</Button>
+                <Button icon='入库开始时间' notext={false}>入库开始时间</Button>
+                <Button icon='入库结束时间' notext={false}>入库结束时间</Button>
+                <Button icon='分组删除' notext={false}>分组删除</Button>
+                <Button icon='分组导入' notext={false}>分组导入</Button>
+                <Button icon='分组排序' notext={false}>分组排序</Button>
+                <Button icon='分组添加' notext={false}>分组添加</Button>
+                <Button icon='分组选中编辑' notext={false}>分组选中编辑</Button>
+                <Button icon='列表中删除' notext={false}>列表中删除</Button>
+                <Button icon='列表设备导入' notext={false}>列表设备导入</Button>
+                <Button icon='列表设备批量编辑' notext={false}>列表设备批量编辑</Button>
+                <Button icon='列表设备排序' notext={false}>列表设备排序</Button>
+                <Button icon='列表设备移组' notext={false}>列表设备移组</Button>
+                <Button icon='手动拉取' notext={false}>手动拉取</Button>
+                <Button icon='报警点' notext={false}>报警点</Button>
+                <Button icon='排序' notext={false}>排序</Button>
+                <Button icon='服务器' notext={false}>服务器</Button>
+                <Button icon='服务子项' notext={false}>服务子项</Button>
+                <Button icon='枪机_在线' notext={false}>枪机_在线</Button>
+                <Button icon='添加分组' notext={false}>添加分组</Button>
+                <Button icon='添加用户' notext={false}>添加用户</Button>
+                <Button icon='添加用户组' notext={false}>添加用户组</Button>
+                <Button icon='球机_在线' notext={false}>球机_在线</Button>
+                <Button icon='用户' notext={false}>用户</Button>
+                <Button icon='表格编辑' notext={false}>表格编辑</Button>
+                <Button icon='表格表头处编辑' notext={false}>表格表头处编辑</Button>
+                <Button icon='车辆出入口' notext={false}>车辆出入口</Button>
+                <Button icon='车辆出入口_布防' notext={false}>车辆出入口_布防</Button>
+                <Button icon='门开' notext={false}>门开</Button>
+                <Button icon='门开_布防' notext={false}>门开_布防</Button>
+            </div>
         );
     }
 }
+
 ```
 
 
