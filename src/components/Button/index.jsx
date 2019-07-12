@@ -18,7 +18,7 @@ export class Button extends React.Component {
     }
 
     handleMouseOver = (e) => {
-        debugger
+        // debugger
         this.setState(produce(draft => {
             draft.className = 'btnHover'
             draft.hover = true
@@ -26,7 +26,7 @@ export class Button extends React.Component {
     }
 
     handleMouseLeave = (e) => {
-        debugger
+        // debugger
         this.setState(produce(draft => {
             draft.className = 'btn'
             draft.hover = false
