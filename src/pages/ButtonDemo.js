@@ -7,11 +7,7 @@ export default class ButtonDemo extends React.Component {
     render() {
         return (
             <div>
-                <Button icon='RFID' notext={false}>RFID</Button>
-                <Button icon='RFID_布防' notext={false}>RFID_布防</Button>
                 <Button icon='下拉' notext={false}>下拉</Button>
-                <Button icon='人脸相机' notext={false}>人脸相机</Button>
-                <Button icon='人脸相机_布控' notext={false}>人脸相机_布控</Button>
                 <Button icon='保存' notext={false}>保存</Button>
                 <Button icon='入库开始时间' notext={false}>入库开始时间</Button>
                 <Button icon='入库结束时间' notext={false}>入库结束时间</Button>
@@ -26,9 +22,7 @@ export default class ButtonDemo extends React.Component {
                 <Button icon='列表设备排序' notext={false}>列表设备排序</Button>
                 <Button icon='列表设备移组' notext={false}>列表设备移组</Button>
                 <Button icon='手动拉取' notext={false}>手动拉取</Button>
-                <Button icon='报警点' notext={false}>报警点</Button>
                 <Button icon='排序' notext={false}>排序</Button>
-                <Button icon='服务器' notext={false}>服务器</Button>
                 <Button icon='服务子项' notext={false}>服务子项</Button>
                 <Button icon='枪机_在线' notext={false}>枪机_在线</Button>
                 <Button icon='添加分组' notext={false}>添加分组</Button>

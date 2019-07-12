@@ -1,4 +1,9 @@
-<svg viewBox="0 0 20 20">
-    <circle cx="10" cy="10" r="9.8"/>
-    <circle  cx="10" cy="10" r="4.8"/>
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.4;fill:#D0211E;}
+	.st1{fill:#D0211E;}
+</style>
+    <circle class="st0" cx="10" cy="10" r="9.8"/>
+    <circle class="st1" cx="10" cy="10" r="4.8"/>
 </svg>

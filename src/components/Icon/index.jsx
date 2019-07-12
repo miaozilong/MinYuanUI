@@ -55,7 +55,6 @@ export class Icon extends React.Component {
         if (component) {
             if (typeof component === 'string') {
                 //    外界传入了图标字符串 如tableEdit
-
                 IconElement = <AntdIcon {...this.props} component={SvgComponent[component]} style={style}
                                         onMouseOver={focuschange ? this.handleMouseOver : void (0)}
                                         onMouseLeave={focuschange ? this.handleMouseLeave : void (0)}/>

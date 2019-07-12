@@ -34,7 +34,6 @@ import 车辆出入口_布防 from './svg/车辆出入口_布防.svg'
 import 门开 from './svg/门开.svg'
 import 门开_布防 from './svg/门开_布防.svg'
 
-
 export const SvgComponent = {
     RFID,
     RFID_布防,
@@ -71,6 +70,4 @@ export const SvgComponent = {
     车辆出入口_布防,
     门开,
     门开_布防,
-
-
 }
