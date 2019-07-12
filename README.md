@@ -126,7 +126,7 @@ treeNodeData =[
 
 ```jsx
 <Tree blockNode>
-    <EditableTreeNode title={'节点标题2'}
+    <TreeNode title={'节点标题2'}
         handleClickEdit={this.test1}
         handleClickDelete={this.test2}
         handleHandleEdit={this.test3}
